@@ -1,0 +1,29 @@
+panel:
+  panelType: AirGo
+  apiHost: http://127.0.0.1:8899
+  nodeID: 4
+  key: airgo
+  duration: 60
+tls:
+  cert: t1.crt
+  key: t1.key
+udpIdleTimeout: 90s
+ignoreClientBandwidth: true
+resolver:
+  type: udp
+  tcp:
+    addr: 8.8.8.8:53
+    timeout: 5s
+  udp:
+    addr: 8.8.8.8:53
+    timeout: 5s
+  tls:
+    addr: 1.1.1.1:853
+    timeout: 5s
+    sni: cloudflare-dns.com
+    insecure: false
+  https:
+    addr: 1.1.1.1:443
+    timeout: 5s
+    sni: cloudflare-dns.com
+    insecure: false

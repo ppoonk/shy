@@ -1,0 +1,9 @@
+with-expecter: true
+inpackage: true
+dir: .
+packages:
+  github.com/ppoonk/shy/core/client:
+    interfaces:
+      udpIO:
+        config:
+          mockname: mockUDPIO

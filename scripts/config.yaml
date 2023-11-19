@@ -1,0 +1,40 @@
+listen: :12316
+
+tls:
+  cert: t1.crt
+  key: t1.key
+
+auth:
+  type: password
+  password: SoWLyittOsm3CDlBUmMBYrAi4I8
+
+masquerade:
+  type: proxy
+  file:
+    dir: /www/masq
+  proxy:
+    url: https://news.ycombinator.com/
+    rewriteHost: true
+  string:
+    content: hello stupid world
+    headers:
+      content-type: text/plain
+      custom-stuff: ice cream so good
+    statusCode: 200
+
+bandwidth:
+  up: 99 gbps
+  down: 99 gbps
+
+udpIdleTimeout: 90s
+
+ignoreClientBandwidth: true
+
+quic:
+  initStreamReceiveWindow: 8888888
+  maxStreamReceiveWindow: 8888888
+  initConnReceiveWindow: 20971520
+  maxConnReceiveWindow: 20971520
+  maxIdleTimeout: 90s
+  maxIncomingStreams: 1800
+  disablePathMTUDiscovery: false
