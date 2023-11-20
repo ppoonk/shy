@@ -23,12 +23,13 @@ jobs:
             goos: windows
     steps:
       - uses: actions/checkout@v3
-      - uses: wangyoucao577/go-release-action@v1
+      - uses: wangyoucao577/go-release-action@master
         with:
           github_token: ${{ secrets.ACTION_TOKEN }}
           goos: ${{ matrix.goos }}
           goarch: ${{ matrix.goarch }}
           goversion: "1.21.4"
           project_path: "./app"
+          ldflags: -s -w -extldflags -static
           binary_name: "shy"
-          extra_files: app/cconfig.yaml README.md
+          extra_files: README.md
