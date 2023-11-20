@@ -13,7 +13,6 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        # build and publish in parallel: linux/386, linux/amd64, linux/arm64, windows/386, windows/amd64, darwin/amd64, darwin/arm64
         goos: [linux, windows, darwin]
         goarch: ["386", amd64, arm64, arm]
         exclude:
@@ -36,4 +35,4 @@ jobs:
           project_path: "./app"
           ldflags: -s -w -extldflags -static
           binary_name: "shy"
-          extra_files: README.md ./app/config
+          extra_files: README.md app/config.yaml
