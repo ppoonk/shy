@@ -28,7 +28,7 @@ jobs:
           github_token: ${{ secrets.ACTION_TOKEN }}
           goos: ${{ matrix.goos }}
           goarch: ${{ matrix.goarch }}
-          goversion: "1.21"
+          goversion: "1.21.4"
           project_path: "./app"
           binary_name: "shy"
           extra_files: app/cconfig.yaml README.md
