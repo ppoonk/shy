@@ -171,7 +171,7 @@ func (a *ApiClient) ReportNodeStatus() error {
 	_, err := a.Client.R().
 		ForceContentType("application/json").
 		SetBody(nodeStatus).
-		Post(reportUserTraffic)
+		Post(reportNodeStatus)
 
 	return err
 }
