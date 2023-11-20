@@ -15,11 +15,15 @@ jobs:
       matrix:
         # build and publish in parallel: linux/386, linux/amd64, linux/arm64, windows/386, windows/amd64, darwin/amd64, darwin/arm64
         goos: [linux, windows, darwin]
-        goarch: ["386", amd64, arm64]
+        goarch: ["386", amd64, arm64, arm]
         exclude:
           - goarch: "386"
             goos: darwin
+          - goarch: arm
+            goos: darwin
           - goarch: arm64
+            goos: windows
+          - goarch: arm
             goos: windows
     steps:
       - uses: actions/checkout@v3
@@ -32,4 +36,4 @@ jobs:
           project_path: "./app"
           ldflags: -s -w -extldflags -static
           binary_name: "shy"
-          extra_files: README.md
+          extra_files: README.md ./app/config
